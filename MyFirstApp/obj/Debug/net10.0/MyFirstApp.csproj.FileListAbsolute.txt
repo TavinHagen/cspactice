@@ -1,0 +1,14 @@
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/bin/Debug/net10.0/MyFirstApp
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/bin/Debug/net10.0/MyFirstApp.deps.json
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/bin/Debug/net10.0/MyFirstApp.runtimeconfig.json
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/bin/Debug/net10.0/MyFirstApp.dll
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/bin/Debug/net10.0/MyFirstApp.pdb
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.AssemblyInfoInputs.cache
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.AssemblyInfo.cs
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.csproj.CoreCompileInputs.cache
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.dll
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/refint/MyFirstApp.dll
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.pdb
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/MyFirstApp.genruntimeconfig.cache
+/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/Debug/net10.0/ref/MyFirstApp.dll
