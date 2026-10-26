@@ -3,6 +3,7 @@ Methods Called Here:
 */
 
 // userNextYearAge();
+Console.WriteLine(simpleMath());
 
 // ==============================================:
 
@@ -57,49 +58,87 @@ Error: cannot divide by zero.
 
 Bonus: Add % (modulus) and ^ (power, using Math.Pow).
 */
-static void simpleMath()
+static double simpleMath()
 {   
-    while (true)
-    {
-        break;
-    }
 
-    while (true) {
-        
-        if (true)
+    bool running = true;
+    double numerator = 0;
+    while (running)
+    {   
+        Console.Write("Enter first number (or q to quit): ");
+        string input = Console.ReadLine();
+
+        if (input == "q") return 0.0;
+
+        if (double.TryParse(input, out numerator))
         {
-            break;
+            running = false;
         }
-        else
+    }
+
+    running = true;
+    string operatorChoice = "";
+
+    while (running) {
+        Console.Write("\nEnter operator: ");
+
+        string input = Console.ReadLine();
+
+        switch (input)
         {
-            Console.WriteLine();
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+            case "%":
+            case "^":
+                operatorChoice = input;
+                break;
+            default:
+                Console.WriteLine("\nPlease enter a valid operator.");
+                continue;
+        }  
+        running = false;
+    }
+
+    running = true;
+    double denominator = 0;
+
+    while (running)
+    {   
+        Console.Write("\nEnter second number: ");
+        string input = Console.ReadLine();
+
+        if (input == "0")
+        {
+            Console.WriteLine("\nError: Cannot divide by zero.\nPlease enter valid number.");
+            continue;
+        }
+
+        if (double.TryParse(input, out denominator))
+        {
+            running = false;
         }
     }
 
-    while (true)
+    switch (operatorChoice)
     {
-        break;
+        case "+":
+            return numerator + denominator;
+        case "-":
+            return numerator - denominator;
+        case "*":
+            return numerator * denominator;
+        case "/":
+            return numerator / denominator;
+        case "%":
+            return numerator % denominator;
+        case "^":
+            return Math.Pow(numerator, denominator);
+        default:
+            Console.WriteLine("\nError: Couldn't proccess request.");
+            return 0.0;
     }
-}
-
-static double add(double n1, double n2)
-{
-    
-}
-
-static double subtract(double n1, double n2)
-{
-    
-}
-
-static double multiply(double n1, double n2)
-{
-    
-}
-
-static double divide(double n1, double n2)
-{
-    
 }
 
 /*

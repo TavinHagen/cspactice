@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/Users/Tavin/.nuget/packages/": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Tavin/Cs_projects/cspactice/MyFirstApp/MyFirstApp.csproj",
+      "projectUniqueName": "/workspaces/cspactice/MyFirstApp/MyFirstApp.csproj",
       "projectName": "MyFirstApp",
-      "projectPath": "/Users/Tavin/Cs_projects/cspactice/MyFirstApp/MyFirstApp.csproj",
-      "packagesPath": "/Users/Tavin/.nuget/packages/",
-      "outputPath": "/Users/Tavin/Cs_projects/cspactice/MyFirstApp/obj/",
+      "projectPath": "/workspaces/cspactice/MyFirstApp/MyFirstApp.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/cspactice/MyFirstApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Tavin/.nuget/NuGet/NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.402/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.401/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
