@@ -1,9 +1,13 @@
+using System.Collections.Generic;
+
 /*
 Methods Called Here:
 */
 
 // userNextYearAge();
 // Console.WriteLine(Math.Round(simpleMath(), 2));
+// fizzBuzz();
+gradeBook();
 
 // ==============================================:
 
@@ -176,13 +180,26 @@ Expected start of output: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz,
 
 Bonus: Rewrite it using a switch expression with a tuple pattern (video 88).
 */
-static void fizzBuzz(int x)
+static void fizzBuzz()
 {
-    if (x == null)
+    for (int i = 1; i <= 100; i++)
     {
-        
-     return;
+        if (i > 1)
+        {
+            Console.Write(", ");
+        }
+
+        string output = (i % 3 == 0, i % 5 == 0) switch
+        {
+            (true, true) => "FizzBuzz",
+            (true, _) => "Fizz",
+            (_, true) => "Buzz",
+            (_, _) => i.ToString() 
+        };
+
+        Console.Write(output);
     }
+    Console.WriteLine();
 }
 
 
@@ -208,7 +225,32 @@ Everyone passed: False
 
 Bonus: Calculate the average and max again using a foreach loop instead of LINQ, and confirm the results match.
 */
+static void gradeBook()
+{   
+    Console.WriteLine("Enter scores (type 'done' to exit): ");
 
+    List<int> scores = new List<int>();
+
+    while (true)
+    {   
+        Console.Write("\nEnter: ");
+        string score = Console.ReadLine();
+        
+        int num = 0;
+
+        if (score == "done") break;
+
+        if (int.TryParse(score, out num) && num >= 0 && num <= 100)
+        {
+            scores.Add(num);
+        }
+        else
+        {
+            Console.WriteLine("Invalid number. Must be in the range 0-100");
+            continue;
+        }
+    }
+}
 
 
 /*
