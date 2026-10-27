@@ -3,7 +3,7 @@ Methods Called Here:
 */
 
 // userNextYearAge();
-Console.WriteLine(simpleMath());
+// Console.WriteLine(Math.Round(simpleMath(), 2));
 
 // ==============================================:
 
@@ -63,6 +63,7 @@ static double simpleMath()
 
     bool running = true;
     double numerator = 0;
+
     while (running)
     {   
         Console.Write("Enter first number (or q to quit): ");
@@ -73,6 +74,11 @@ static double simpleMath()
         if (double.TryParse(input, out numerator))
         {
             running = false;
+        }
+        else
+        {
+            Console.WriteLine("Invalid number.");
+            continue;
         }
     }
 
@@ -109,7 +115,7 @@ static double simpleMath()
         Console.Write("\nEnter second number: ");
         string input = Console.ReadLine();
 
-        if (input == "0")
+        if (input == "0" && (operatorChoice == "/" || operatorChoice == "%"))
         {
             Console.WriteLine("\nError: Cannot divide by zero.\nPlease enter valid number.");
             continue;
@@ -119,27 +125,40 @@ static double simpleMath()
         {
             running = false;
         }
+        else
+        {
+            Console.WriteLine("Invalid number.");
+            continue;
+        }
     }
 
     switch (operatorChoice)
     {
         case "+":
-            return numerator + denominator;
+            return add(numerator, denominator);
         case "-":
-            return numerator - denominator;
+            return subtract(numerator, denominator);
         case "*":
-            return numerator * denominator;
+            return multiply(numerator, denominator);
         case "/":
-            return numerator / denominator;
+            return divide(numerator, denominator);
         case "%":
-            return numerator % denominator;
+            return modulus(numerator, denominator);
         case "^":
-            return Math.Pow(numerator, denominator);
+            return power(numerator, denominator);
         default:
             Console.WriteLine("\nError: Couldn't proccess request.");
-            return 0.0;
+            return 1.0;
     }
 }
+
+static double add(double a, double b) => a + b;
+static double subtract(double a, double b) => a - b;
+static double multiply(double a, double b) => a * b;
+static double divide(double a, double b) => a / b;
+static double modulus(double a, double b) => a % b;
+static double power(double a, double b) => Math.Pow(a, b);
+
 
 /*
 Problem 3: FizzBuzz (videos 9-12)
@@ -157,7 +176,14 @@ Expected start of output: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz,
 
 Bonus: Rewrite it using a switch expression with a tuple pattern (video 88).
 */
-
+static void fizzBuzz(int x)
+{
+    if (x == null)
+    {
+        
+     return;
+    }
+}
 
 
 /*
