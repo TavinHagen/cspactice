@@ -167,7 +167,6 @@ static double divide(double a, double b) => a / b;
 static double modulus(double a, double b) => a % b;
 static double power(double a, double b) => Math.Pow(a, b);
 
-
 /*
 Problem 3: FizzBuzz (videos 9-12)
 
@@ -205,7 +204,6 @@ static void fizzBuzz()
     }
     Console.WriteLine();
 }
-
 
 /*
 Problem 4: Grade Book (videos 14-15, 50, 64, 66)
@@ -278,7 +276,6 @@ static void gradeBook()
     Console.WriteLine($"Everyone passed: {allPassed}");
 }
 
-
 /*
 Problem 5: Bank Account (videos 27-31, 37, 40)
 
@@ -294,55 +291,8 @@ In Main, create an account, deposit, withdraw, then try to withdraw too much. Pr
 
 Bonus: Add a static int TotalAccounts counter that increases in the constructor (video 31).
 */
-public class BankAccount
-{
-    private decimal _balance;
-    public decimal Balance => _balance;
-    private static int totalAccounts;
-    private string _owner;
-    public string Owner => _owner;
 
 
-    public BankAccount(string owner, decimal balance)
-    {
-        _owner = owner;
-        _balance = balance;
-        totalAccounts++;
-    }
-
-    public BankAccount(string owner) : this(owner, 0)
-    {
-
-    }
-
-    public bool Deposit(decimal amount) 
-    {
-        if (amount <= 0)
-        {
-            return false;
-        }
-
-        _balance += amount;
-
-        return true;
-    }
-
-    public bool Withdraw(decimal amount)
-    {
-        if (amount <= 0 || amount > _balance)
-        {
-            return false;
-        }
-
-        _balance -= amount;
-        return true;
-    }
-
-    public override string ToString()
-    {
-        return $"{_owner}: {Balance:c}";
-    }
-}
 
 /*
 Problem 6: Shapes (videos 32-36, 38)
@@ -388,7 +338,6 @@ Bonus: Ask the user for the file path and handle the case where it doesn’t exi
 */
 
 
-
 /*
 Problem 8: Student Filter (videos 56-67)
 
@@ -403,7 +352,6 @@ Use OrderByDescending, Take, and Select to print the top 3 students.
 
 Bonus: Print the average grade per letter group using Average inside a Select on the groups.
 */
-
 
 
 /*
@@ -422,7 +370,6 @@ Use a with expression to copy one item with a new quantity, and print both to sh
 
 Bonus: Compare an original item to its loaded copy with == and explain why records give you true (video 89).
 */
-
 
 
 /*
