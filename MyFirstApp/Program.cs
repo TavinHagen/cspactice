@@ -360,7 +360,13 @@ Total area: 102.54
 
 Bonus: Add a Triangle class without changing your loop, then sort the list by area with OrderBy.
 */
+public abstract class Shape()
+{
+    string _name;
+    string Name => _name;
 
+    public abstract double Area();
+}
 
 /*
 Problem 7: Word Counter (videos 42, 71-73, 80-81)
@@ -383,7 +389,6 @@ is: 3
 Bonus: Ask the user for the file path and handle the case where it doesn’t exist.
 */
 
-
 /*
 Problem 8: Student Filter (videos 56-67)
 
@@ -398,7 +403,6 @@ Use OrderByDescending, Take, and Select to print the top 3 students.
 
 Bonus: Print the average grade per letter group using Average inside a Select on the groups.
 */
-
 
 /*
 Problem 9: Inventory with JSON (videos 77, 89, 90, 95)
@@ -416,7 +420,6 @@ Use a with expression to copy one item with a new quantity, and print both to sh
 
 Bonus: Compare an original item to its loaded copy with == and explain why records give you true (video 89).
 */
-
 
 /*
 Problem 10: Async Timer (videos 83-84, 85)
