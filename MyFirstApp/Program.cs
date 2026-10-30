@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Collections.Generic;
 
 /*
@@ -7,8 +8,11 @@ Methods Called Here:
 // userNextYearAge();
 // Console.WriteLine(Math.Round(simpleMath(), 2));
 // fizzBuzz();
-gradeBook();
-
+// gradeBook();
+BankAccount account = new BankAccount("Dave", 34.55m);
+account.Deposit(332.43m);
+account.Withdraw(33.68m);
+Console.WriteLine(account.ToString());
 // ==============================================:
 
 /*
@@ -247,9 +251,31 @@ static void gradeBook()
         else
         {
             Console.WriteLine("Invalid number. Must be in the range 0-100");
-            continue;
         }
     }
+
+    if (scores.Count <= 0)
+    {
+        Console.WriteLine("No scores entered");
+        return;
+    }
+
+    scores.Sort();
+
+    Console.Write("\nSorted: ");
+    Console.Write(string.Join(", ", scores));
+
+    double averageScore = scores.Average();
+    Console.WriteLine($"\nAverage: {averageScore:F1}");
+
+    int maxScore = scores.Max();
+    Console.WriteLine($"Highest: {maxScore}");
+
+    int minScore = scores.Min();
+    Console.WriteLine($"Lowest: {minScore}");
+
+    bool allPassed = scores.All(score => score >= 60);
+    Console.WriteLine($"Everyone passed: {allPassed}");
 }
 
 
@@ -268,8 +294,55 @@ In Main, create an account, deposit, withdraw, then try to withdraw too much. Pr
 
 Bonus: Add a static int TotalAccounts counter that increases in the constructor (video 31).
 */
+public class BankAccount
+{
+    private decimal _balance;
+    public decimal Balance => _balance;
+    private static int totalAccounts;
+    private string _owner;
+    public string Owner => _owner;
 
 
+    public BankAccount(string owner, decimal balance)
+    {
+        _owner = owner;
+        _balance = balance;
+        totalAccounts++;
+    }
+
+    public BankAccount(string owner) : this(owner, 0)
+    {
+
+    }
+
+    public bool Deposit(decimal amount) 
+    {
+        if (amount <= 0)
+        {
+            return false;
+        }
+
+        _balance += amount;
+
+        return true;
+    }
+
+    public bool Withdraw(decimal amount)
+    {
+        if (amount <= 0 || amount > _balance)
+        {
+            return false;
+        }
+
+        _balance -= amount;
+        return true;
+    }
+
+    public override string ToString()
+    {
+        return $"{_owner}: {Balance:c}";
+    }
+}
 
 /*
 Problem 6: Shapes (videos 32-36, 38)
@@ -291,7 +364,6 @@ Total area: 102.54
 
 Bonus: Add a Triangle class without changing your loop, then sort the list by area with OrderBy.
 */
-
 
 
 /*
