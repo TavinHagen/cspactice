@@ -1,0 +1,5 @@
+/Users/Tavin/Documents/GitHub/cspactice/MyFirstApp/obj/Debug/net7.0/MyFirstApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Tavin/Documents/GitHub/cspactice/MyFirstApp/obj/Debug/net7.0/MyFirstApp.AssemblyInfoInputs.cache
+/Users/Tavin/Documents/GitHub/cspactice/MyFirstApp/obj/Debug/net7.0/MyFirstApp.AssemblyInfo.cs
+/Users/Tavin/Documents/GitHub/cspactice/MyFirstApp/obj/Debug/net7.0/MyFirstApp.csproj.CoreCompileInputs.cache
+/Users/Tavin/Documents/GitHub/cspactice/MyFirstApp/obj/Debug/net7.0/MyFirstApp.sourcelink.json

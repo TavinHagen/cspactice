@@ -1,18 +1,34 @@
-using System.Buffers;
-using System.Collections.Generic;
-
 /*
 Methods Called Here:
 */
 
 // userNextYearAge();
+
 // Console.WriteLine(Math.Round(simpleMath(), 2));
+
 // fizzBuzz();
+
 // gradeBook();
-BankAccount account = new BankAccount("Dave", 34.55m);
-account.Deposit(332.43m);
-account.Withdraw(33.68m);
-Console.WriteLine(account.ToString());
+
+// BankAccount account = new BankAccount("Dave", 34.55m);
+// account.Deposit(332.43m);
+// account.Withdraw(33.68m);
+// Console.WriteLine(account.ToString());
+
+List<Shape> shapes = new List<Shape>
+{
+    new Circle(5),
+    new Circle(2),
+    new Rectangle(5, 3),
+    new Rectangle(4, 4),
+    new Triangle(6, 3),
+};
+
+foreach (Shape shape in shapes)
+{
+    Console.WriteLine($"{shape.Name}'s Area: {shape.Area():F2}");
+}
+
 // ==============================================:
 
 /*
@@ -26,7 +42,8 @@ Print the result using string interpolation ($"...").
 
 Bonus: Use int.TryParse and keep re-asking until the user enters a valid number.
 */
-static void userNextYearAge() {
+static void userNextYearAge() 
+{
     Console.Write("What is your name? ");
     string name = Console.ReadLine();
 
@@ -291,54 +308,6 @@ In Main, create an account, deposit, withdraw, then try to withdraw too much. Pr
 
 Bonus: Add a static int TotalAccounts counter that increases in the constructor (video 31).
 */
-public class BankAccount
-{
-    private decimal _balance;
-    public decimal Balance => _balance;
-    private static int totalAccounts;
-    private string _owner;
-    public string Owner => _owner;
-
-    public BankAccount(string owner, decimal balance)
-    {
-        _owner = owner;
-        _balance = balance;
-        totalAccounts++;
-    }
-
-    public BankAccount(string owner) : this(owner, 0)
-    {
-
-    }
-
-    public bool Deposit(decimal amount) 
-    {
-        if (amount <= 0)
-        {
-            return false;
-        }
-
-        _balance += amount;
-
-        return true;
-    }
-
-    public bool Withdraw(decimal amount)
-    {
-        if (amount <= 0 || amount > _balance)
-        {
-            return false;
-        }
-
-        _balance -= amount;
-        return true;
-    }
-
-    public override string ToString()
-    {
-        return $"{_owner}: {Balance:c}";
-    }
-}
 
 /*
 Problem 6: Shapes (videos 32-36, 38)
@@ -360,13 +329,6 @@ Total area: 102.54
 
 Bonus: Add a Triangle class without changing your loop, then sort the list by area with OrderBy.
 */
-public abstract class Shape()
-{
-    string _name;
-    string Name => _name;
-
-    public abstract double Area();
-}
 
 /*
 Problem 7: Word Counter (videos 42, 71-73, 80-81)
