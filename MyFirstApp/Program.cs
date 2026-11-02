@@ -1,3 +1,6 @@
+
+using System.Linq;
+
 /*
 Methods Called Here:
 */
@@ -10,11 +13,14 @@ Methods Called Here:
 
 // gradeBook();
 
-// BankAccount account = new BankAccount("Dave", 34.55m);
-// account.Deposit(332.43m);
-// account.Withdraw(33.68m);
-// Console.WriteLine(account.ToString());
+/*
+BankAccount account = new BankAccount("Dave", 34.55m);
+account.Deposit(332.43m);
+account.Withdraw(33.68m);
+Console.WriteLine(account.ToString());
+*/
 
+/*
 List<Shape> shapes = new List<Shape>
 {
     new Circle(5),
@@ -24,12 +30,23 @@ List<Shape> shapes = new List<Shape>
     new Triangle(6, 3),
 };
 
+double totalArea = 0;
+
 foreach (Shape shape in shapes)
 {
-    Console.WriteLine($"{shape.Name}'s Area: {shape.Area():F2}");
+    double area = shape.Area();
+
+    Console.WriteLine($"{shape.Name}'s Area: {area:F2}");
+
+    totalArea += area;
 }
 
-// ==============================================:
+Console.WriteLine($"\nTotal Area: {totalArea:F2}");
+
+List<Shape> sortedShapes = shapes.OrderBy(shape => shape.Area()).ToList();
+*/
+
+// ==============================================
 
 /*
 Goal: Practice input, variables, strings, and type conversion.
