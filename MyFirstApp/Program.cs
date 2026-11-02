@@ -46,6 +46,13 @@ Console.WriteLine($"\nTotal Area: {totalArea:F2}");
 List<Shape> sortedShapes = shapes.OrderBy(shape => shape.Area()).ToList();
 */
 
+/*
+var students = new List<Student>
+{
+    new Student("Jonas", 45),
+};
+*/
+
 // ==============================================
 
 /*
@@ -367,6 +374,47 @@ is: 3
 
 Bonus: Ask the user for the file path and handle the case where it doesn’t exist.
 */
+
+string filePath = Path.Combine(AppContext.BaseDirectory, "sample.txt");
+
+string content;
+
+try
+{
+    content = File.ReadAllText(filePath);
+}
+catch (FileNotFoundException)
+{
+    Console.WriteLine("File not found.");
+    return;
+}
+
+string lower = content.ToLower();
+
+char[] separators = { ' ', '.', ',', '!', '?' };
+string[] splitContent = lower.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+var wordCount = new Dictionary<string, int>();
+
+foreach (string word in splitContent)
+{
+    if (wordCount.ContainsKey(word))
+    {
+        wordCount[word]++;
+    }
+    else
+    {
+        wordCount.Add(word, 1);
+    }
+}
+
+Dictionary<string, int> sortedWordCount = wordCount.OrderByDescending(pair => pair.Value).Take(5).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+foreach (var word in sortedWordCount)
+{
+    Console.WriteLine($"{word.Key} : {word.Value}");
+}
+
 
 /*
 Problem 8: Student Filter (videos 56-67)
