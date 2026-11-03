@@ -493,3 +493,34 @@ Finally, await t; and print “All finished.”
 Bonus: Start two countdowns, wait for both with await Task.WhenAll(t1, t2), and use a Stopwatch to show the total time is about 3 seconds, not 6.
 */
 
+
+/*
+LESSON 01: CLASSES AND CONSTRUCTORS
+
+Create a class named GameProfile.
+
+Requirements:
+
+1. Create a public string field called Name.
+2. Create a public int field called Level.
+3. Create a constructor that accepts a name.
+4. The constructor must store the name and
+   set the starting level to 1.
+5. Create a public method called LevelUp()
+   that increases Level by 1.
+6. Create a method called Summary() that
+   returns:
+   "Name: <name>, Level: <level>"
+
+TEST CASES:
+
+- A new GameProfile("Mira") starts at level 1.
+- Calling LevelUp() twice makes the level 3.
+- A second GameProfile("Jun") still starts
+  at level 1.
+- Mira's Summary() should return:
+  "Name: Mira, Level: 3"
+
+Try implementing it yourself.
+*/
+
