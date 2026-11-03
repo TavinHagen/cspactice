@@ -50,7 +50,36 @@ List<Shape> sortedShapes = shapes.OrderBy(shape => shape.Area()).ToList();
 var students = new List<Student>
 {
     new Student("Jonas", 45),
+    new Student("Jude", 9),
+    new Student("Chase", 100),
+    new Student("Kyle", 75),
+    new Student("Jaden", 80),
+    new Student("Andy", 60),
+    new Student("Hunter", 61),
+    new Student("Zach", 25),
+    new Student("Evan", 91),
+    new Student("Stevenson", 90),
 };
+
+var topStudents = students.Where(Student => Student.Grade >= 80).OrderBy(Student => Student.Name).ToList();
+
+var groupByGrade = students.GroupBy(student => student.GetLetter(student.Grade)).ToList();
+
+Console.WriteLine("Students with a grade of 80+:");
+foreach (var student in topStudents)
+{
+    Console.WriteLine($"    Student: {student.Name}, Grade: {student.Grade}");
+}
+
+Console.WriteLine("\nSorted Students by grade:");
+foreach (var group in groupByGrade)
+{
+    Console.WriteLine($"  Grade Category: {group.Key}");
+    foreach (var student in group)
+    {
+        Console.WriteLine($"    Student: {student.Name}, Grade: {student.Grade}");
+    }
+}
 */
 
 // ==============================================
@@ -375,6 +404,7 @@ is: 3
 Bonus: Ask the user for the file path and handle the case where it doesn’t exist.
 */
 
+/*
 string filePath = Path.Combine(AppContext.BaseDirectory, "sample.txt");
 
 string content;
@@ -414,6 +444,7 @@ foreach (var word in sortedWordCount)
 {
     Console.WriteLine($"{word.Key} : {word.Value}");
 }
+*/
 
 
 /*

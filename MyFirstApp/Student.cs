@@ -15,12 +15,29 @@ Bonus: Print the average grade per letter group using Average inside a Select on
 
 public class Student
 {
-    private string name;
-    private int grade;
+    public string Name { get; }
+    public int Grade { get; }
 
     public Student(string name, int grade)
     {
-        this.name = name;
-        this.grade = grade;
+        Name = name;
+        Grade = grade;
+    }
+
+    public char GetLetter(int grade)
+    {
+        switch (grade)
+        {
+            case >= 90:
+                return 'A';
+            case >= 80:
+                return 'B';
+            case >= 70:
+                return 'C';
+            case >= 60:
+                return 'D';
+            case < 60:
+                return 'F';
+        }
     }
 }
