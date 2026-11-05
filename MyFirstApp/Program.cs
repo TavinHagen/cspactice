@@ -46,7 +46,6 @@ Console.WriteLine($"\nTotal Area: {totalArea:F2}");
 List<Shape> sortedShapes = shapes.OrderBy(shape => shape.Area()).ToList();
 */
 
-/*
 var students = new List<Student>
 {
     new Student("Jonas", 45),
@@ -80,8 +79,17 @@ foreach (var group in groupByGrade)
         Console.WriteLine($"    Student: {student.Name}, Grade: {student.Grade}");
     }
 }
-*/
 
+bool hasFail = students.Any(student => student.Grade < 60);
+Console.WriteLine($"\nHas any student failed: {hasFail}");
+
+bool allPassed = students.All(student => student.Grade >= 60);
+Console.WriteLine($"\nHas all students passed: {allPassed}");
+
+var gradeAverages = students.Select(student => new
+{
+    //Averages = student.Grade.Average()
+});
 // ==============================================
 
 /*
