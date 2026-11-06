@@ -1,4 +1,5 @@
 
+using System.IO.Compression;
 using System.Linq;
 
 /*
@@ -46,6 +47,7 @@ Console.WriteLine($"\nTotal Area: {totalArea:F2}");
 List<Shape> sortedShapes = shapes.OrderBy(shape => shape.Area()).ToList();
 */
 
+/*
 var students = new List<Student>
 {
     new Student("Jonas", 45),
@@ -73,7 +75,7 @@ foreach (var student in topStudents)
 Console.WriteLine("\nSorted Students by grade:");
 foreach (var group in groupByGrade)
 {
-    Console.WriteLine($"  Grade Category: {group.Key}");
+    Console.WriteLine($"    Grade Category: {group.Key}");
     foreach (var student in group)
     {
         Console.WriteLine($"    Student: {student.Name}, Grade: {student.Grade}");
@@ -86,10 +88,13 @@ Console.WriteLine($"\nHas any student failed: {hasFail}");
 bool allPassed = students.All(student => student.Grade >= 60);
 Console.WriteLine($"\nHas all students passed: {allPassed}");
 
-var gradeAverages = students.Select(student => new
+var gradeAverages = groupByGrade.Select(group => new
 {
-    //Averages = student.Grade.Average()
+    Grade = group.Key,
+    Average = group.Average(student => student.Grade)
 });
+*/
+
 // ==============================================
 
 /*
@@ -532,3 +537,154 @@ TEST CASES:
 Try implementing it yourself.
 */
 
+
+// Linq practice:
+
+/*
+Problem 1: Basic Filtering (Where)
+
+• Task: Given a list of integers List<int> numbers = new() { 1, 4, 7, 9, 12, 15, 18, 22 };, 
+write a LINQ query to get only the even numbers that are greater than 10, 
+and return them as a List<int>.
+
+Hint: Use .Where(n => ...) followed by .ToList().*/
+
+var numbers = new List<int>() { 1, 4, 7, 9, 12, 15, 18, 22 };
+
+var evenGreaterThanTen = numbers.Where(n => n % 2 == 0 && n > 10).ToList();
+Console.WriteLine("Even numebrs greater than 10: ");
+
+foreach (int num in evenGreaterThanTen)
+{
+    Console.WriteLine($"\t{num}");
+}
+
+
+/*
+Problem 2: Projection (Select)
+
+• Task: Given a list of Student objects, 
+return a List<string> containing only the names of all students whose major is "Computer Science".
+
+• Hint: Combine Where and Select*/
+
+var newStudents = new List<Student2>()
+{
+    new Student2 { Name = "Liam", Major = "Computer Science" },
+    new Student2 { Name = "Jonas", Major = "Computer Science" },
+    new Student2 { Name = "Jude", Major = "Gender Studies & lesbian tribal dance" },
+    new Student2 { Name = "Oliver", Major = "Everything" },
+};
+
+var prob2result = newStudents.Where(s => s.Major == "Computer Science").Select(s => s.Name).ToList();
+
+Console.WriteLine("\nStudent with a Computer Science Major: ");
+foreach (string name in prob2result)
+{
+    Console.WriteLine($"\tName: {name}");
+}
+
+
+/*
+Problem 3: Sorting (OrderBy and OrderByDescending)
+
+• Task: Given a list of Product objects, 
+sort the products first by Category (ascending) and then by Price (descending).
+
+• Hint: Use .OrderBy(...) and .ThenByDescending(...)*/
+
+var products = new List<Product>()
+{
+    new Product { Category = "Utility", Price = 4.53m },
+    new Product { Category = "Utility", Price = 50.76m },
+    new Product { Category = "Food", Price = 2.99m },
+    new Product { Category = "Entertainment", Price = 456.66m },
+};
+
+var sortedProducts = products.OrderBy(p => p.Category)
+                    .ThenByDescending(p => p.Price).ToList();
+
+Console.WriteLine("\nSorted products by category and price:");
+foreach (Product item in sortedProducts)
+{
+    Console.WriteLine($"\tCategory: {item.Category}, Price: {item.Price}");
+}
+
+/*
+Problem 4: Aggregation (Average and Max)
+
+• Task: Given a list of Student objects, find the average GPA of all students, 
+and separately find the highest GPA value.
+
+• Hint: Use .Average(s => s.GPA) and .Max(s => s.GPA).*/
+
+var studentsGPA = new List<Student2>()
+{
+    new Student2 { GPA = 3.2 },
+    new Student2 { GPA = 4.0 },
+    new Student2 { GPA = 3.5 },
+    new Student2 { GPA = 1.5 },
+    new Student2 { GPA = 3.2 },
+};
+
+double avgGPA = studentsGPA.Average(s => s.GPA);
+
+Console.WriteLine($"\nThe average GPA is {avgGPA}");
+
+double highestGPA = studentsGPA.Max(s => s.GPA);
+
+Console.WriteLine($"\nThe highest GPA is {highestGPA}");
+
+/*
+Problem 5: Grouping (GroupBy)
+
+• Task: Group a list of Product objects by their Category and 
+project each group into an anonymous type containing the Category name 
+and the count of products in that category.
+
+• Hint: Use products.GroupBy(p => p.Category).Select(g => new { g.Key, Count = g.Count() }).*/
+
+var categoryProducts = new List<Product>()
+{
+    new Product { Category = "utility", Stock = 1 },
+};
+
+var groupedProducts = categoryProducts.GroupBy(p => p.Category).Select(s => new
+{
+    s.Key,
+    Count = s.Count(),
+});
+
+Console.WriteLine("\nProduct categories and count:");
+foreach (Product item in products)
+{
+    Console.WriteLine($"\tCategory: {item.Category}, Amount: {item.Stock}");
+}
+
+
+/*
+Problem 6: Condition Checks (Any and First / FirstOrDefault)
+
+• Task: Check if any product in the products list has a Stock == 0 (out of stock). 
+Then, retrieve the first product whose price is greater than $500 (or null if none exist).
+
+• Hint: Use .Any(...) and .FirstOrDefault(...).*/
+
+
+
+public class Student2
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Major { get; set; }
+    public double GPA { get; set; }
+}
+
+public class Product
+{
+    public string Name { get; set; }
+    public string Category { get; set; }
+    public decimal Price { get; set; }
+    public int Stock { get; set; }
+}
