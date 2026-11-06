@@ -1,6 +1,7 @@
 
 using System.IO.Compression;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 /*
 Methods Called Here:
@@ -552,7 +553,7 @@ Hint: Use .Where(n => ...) followed by .ToList().*/
 var numbers = new List<int>() { 1, 4, 7, 9, 12, 15, 18, 22 };
 
 var evenGreaterThanTen = numbers.Where(n => n % 2 == 0 && n > 10).ToList();
-Console.WriteLine("Even numebrs greater than 10: ");
+Console.WriteLine("Even numbers greater than 10: ");
 
 foreach (int num in evenGreaterThanTen)
 {
@@ -629,11 +630,11 @@ var studentsGPA = new List<Student2>()
 
 double avgGPA = studentsGPA.Average(s => s.GPA);
 
-Console.WriteLine($"\nThe average GPA is {avgGPA}");
+Console.WriteLine($"\nThe average GPA is {avgGPA:F3}");
 
 double highestGPA = studentsGPA.Max(s => s.GPA);
 
-Console.WriteLine($"\nThe highest GPA is {highestGPA}");
+Console.WriteLine($"\nThe highest GPA is {highestGPA:F3}");
 
 /*
 Problem 5: Grouping (GroupBy)
@@ -656,9 +657,9 @@ var groupedProducts = categoryProducts.GroupBy(p => p.Category).Select(s => new
 });
 
 Console.WriteLine("\nProduct categories and count:");
-foreach (Product item in products)
+foreach (var group in groupedProducts)
 {
-    Console.WriteLine($"\tCategory: {item.Category}, Amount: {item.Stock}");
+    Console.WriteLine($"\tCategory: {group.Key}, Amount: {group.Count}");
 }
 
 
